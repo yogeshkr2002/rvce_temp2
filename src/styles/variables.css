@@ -1,0 +1,23 @@
+:root {
+  --primary: #1E3A8A;
+  --primary-hover: #1e40af;
+  --primary-dark: #1e3a8a;
+  --primary-light: #3b82f6;
+  --primary-bg: rgba(30, 58, 138, 0.08);
+  --primary-bg-light: #EFF6FF;
+  --primary-border: #BFDBFE;
+
+  --secondary: #111827;
+
+  --bg-light: #ffffff;
+  --bg-alt: #EFF6FF;
+  --text-dark: #111827;
+  --text-mid: #374151;
+  --text-light: #6b7280;
+
+  --border: #e5e7eb;
+  --card-bg: #DBEAFE;
+
+  --radius: 10px;
+  --radius-lg: 20px;
+}

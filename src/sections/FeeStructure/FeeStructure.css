@@ -1,0 +1,378 @@
+/* ================= SECTION ================= */
+
+.fee-section {
+  padding: 70px 0;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================= MAIN HEADER ================= */
+
+.fee-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.fee-header h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #1e3a8a;
+  letter-spacing: -0.5px;
+}
+
+.fee-header p {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* ================= CATEGORY BLOCK ================= */
+
+.fee-category {
+  margin-bottom: 52px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid #bfdbfe;
+}
+
+.fee-category:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* ================= SUBHEADING ================= */
+
+.cat-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.cat-bar {
+  width: 5px;
+  height: 28px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.cat-heading h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+/* ================= TWO-COLUMN LAYOUT ================= */
+
+.cat-layout {
+  display: grid;
+  grid-template-columns: 36fr 64fr;
+  gap: 22px;
+  align-items: stretch;
+  min-height: 300px;
+}
+
+/* ================= LEFT SIDE ================= */
+
+.cat-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* DESC BOX */
+.cat-desc {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 16px;
+  padding: 22px 20px 18px;
+}
+
+.cat-tagline {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9ca3af;
+  margin: 0 0 10px;
+}
+
+.cat-text {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+/* STATS ROW */
+.cat-stats {
+  display: flex;
+  gap: 8px;
+}
+
+.cat-stat {
+  flex: 1;
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid;
+}
+
+.cat-stat strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.cat-stat span {
+  font-size: 10px;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* IMAGE */
+.cat-img-wrap {
+  flex: 1;
+  min-height: 100px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cat-img-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.cat-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= BRANCH GRID ================= */
+
+.branch-grid {
+  display: grid;
+  gap: 12px;
+  height: 100%;
+  align-content: start;
+}
+
+/* .grid-4 {
+  grid-template-columns: 1fr 1fr;
+} */
+
+/* .grid-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+} */
+
+/* ================= BRANCH CARD ================= */
+
+.branch-card {
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 16px 14px 14px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.branch-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.12);
+  border-color: #93c5fd;
+}
+
+/* CARD TOP ROW */
+.bc-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.bc-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.bc-title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.bc-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 3px;
+  line-height: 1.3;
+}
+
+.bc-sub {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* FEES ROW */
+.bc-fees {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bc-year {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bc-year span {
+  font-size: 9px;
+  color: #9ca3af;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 2px;
+}
+
+.bc-year strong {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.bc-arrow {
+  color: #bfdbfe;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.bc-total {
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .cat-layout {
+    grid-template-columns: 40fr 60fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .fee-header h2 {
+    font-size: 28px;
+  }
+
+  .cat-layout {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  .cat-img-wrap {
+    display: none;
+  }
+
+  /* On tablet/mobile, 4-branch grid → 2 columns */
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* 3-branch grid → 1 column (avoid squishing) */
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bc-fees {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fee-section {
+    padding: 50px 0;
+  }
+
+  .fee-header h2 {
+    font-size: 22px;
+  }
+
+  .cat-heading h3 {
+    font-size: 17px;
+  }
+
+  /* All grids → 1 column on very small screens */
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .cat-stats {
+    flex-wrap: wrap;
+  }
+
+  .cat-stat {
+    min-width: 80px;
+  }
+
+  .bc-name {
+    font-size: 12px;
+  }
+
+  .bc-year strong {
+    font-size: 13px;
+  }
+}

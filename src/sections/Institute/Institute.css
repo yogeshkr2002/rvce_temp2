@@ -1,0 +1,148 @@
+/* ================= SECTION ================= */
+
+.institute {
+  padding: 70px 0;
+  background: #ffffff;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================= HEADER ================= */
+
+.institute-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.institute-header h2 {
+  font-size: 42px;
+  color: #1E3A8A;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* ================= GRID ================= */
+
+.institute-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* ================= CARD ================= */
+
+.institute-card {
+  padding: 35px 20px 30px;
+  border-radius: 16px;
+  background: #DBEAFE;
+  border: 1px solid #BFDBFE;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  transition: all 0.2s ease;
+
+  min-height: 200px;
+}
+
+/* HOVER */
+.institute-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ================= ICON ================= */
+
+.icon-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  margin-bottom: 18px;
+
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ================= TEXT ================= */
+
+.institute-card p {
+  font-weight: 600;
+  font-size: 16px;
+  color: #1f2937;
+
+  max-width: 180px;
+  line-height: 1.4;
+}
+
+/* ================= COLORS ================= */
+
+/* BLUE (primary) */
+.institute-card.red .icon-box {
+  background: rgba(30, 58, 138, 0.12);
+  color: #1E3A8A;
+}
+.institute-card.red:hover {
+  box-shadow: 0 12px 25px rgba(30, 58, 138, 0.2);
+  border-color: #93c5fd;
+}
+
+/* BLUE */
+.institute-card.blue .icon-box {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+.institute-card.blue:hover {
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.2);
+  border-color: #bfdbfe;
+}
+
+/* PURPLE */
+.institute-card.purple .icon-box {
+  background: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+}
+.institute-card.purple:hover {
+  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.2);
+  border-color: #ddd6fe;
+}
+
+/* GREEN */
+.institute-card.green .icon-box {
+  background: rgba(22, 163, 74, 0.1);
+  color: #16a34a;
+}
+.institute-card.green:hover {
+  box-shadow: 0 12px 25px rgba(22, 163, 74, 0.2);
+  border-color: #bbf7d0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .institute-header h2 {
+    font-size: 34px;
+  }
+
+  .institute-card {
+    min-height: 180px;
+  }
+
+  .icon-box {
+    width: 70px;
+    height: 70px;
+    font-size: 26px;
+  }
+}

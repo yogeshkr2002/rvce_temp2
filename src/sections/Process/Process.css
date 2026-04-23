@@ -1,0 +1,245 @@
+/* SECTION */
+.process-section {
+  padding: 70px 0;
+  background: #EFF6FF;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 800;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+/* SUBTITLE */
+.subtitle-box {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  background: #1E3A8A;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* ================= LAYOUT ================= */
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* BOTH CARDS SAME STYLE */
+.timeline-card,
+.form-card {
+  background: #DBEAFE;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
+  height: 100%;
+  border: 1px solid #BFDBFE;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline {
+  position: relative;
+}
+
+/* ITEM */
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+/* LEFT / RIGHT */
+.timeline-item.left {
+  justify-content: flex-start;
+}
+
+.timeline-item.right {
+  justify-content: flex-end;
+}
+
+/* CONTENT */
+.timeline-content {
+  width: 45%;
+  background: #ffffff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.06);
+  border: 1px solid #BFDBFE;
+}
+
+.timeline-content h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1E3A8A;
+}
+
+.timeline-content p {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* CIRCLE */
+.timeline-circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 45px;
+  background: #1E3A8A;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.35);
+}
+
+/* LINE */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  width: 3px;
+  height: calc(100% + 20px);
+  background: #BFDBFE;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* ================= FORM ================= */
+
+.form-card h3 {
+  margin-bottom: 18px;
+  color: #1E3A8A;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* FORM */
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #BFDBFE;
+  font-size: 15px;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  border-color: #1E3A8A;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.form-card textarea {
+  min-height: 90px;
+}
+
+/* BUTTON */
+.form-card button {
+  background: #1E3A8A;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.form-card button:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.4);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .process-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    justify-content: flex-start !important;
+    padding-left: 50px;
+  }
+
+  .timeline-circle {
+    left: 20px;
+  }
+
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .subtitle-box {
+    font-size: 15px;
+    padding: 12px 16px;
+    margin-bottom: 28px;
+  }
+
+  .timeline-content h4 {
+    font-size: 15px;
+  }
+
+  .timeline-content p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle-box {
+    font-size: 13px;
+  }
+}

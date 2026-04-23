@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* ================= FIXED CONTACT BUTTONS ================= */
+
+.fixed-contact-btns {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.fixed-contact-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: filter 0.2s ease;
+}
+
+.fixed-contact-btn:hover {
+  filter: brightness(1.1);
+}
+
+.fixed-contact-btn.wa {
+  background: #25D366;
+}
+
+.fixed-contact-btn.call {
+  background: #1E3A8A;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .fixed-contact-btns {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: 54px;
+  }
+}
