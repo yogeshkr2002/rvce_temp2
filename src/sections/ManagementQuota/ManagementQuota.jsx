@@ -1,6 +1,6 @@
 import "./ManagementQuota.css";
 
-const ICON_ACCENT = "#3ce031";
+const ICON_ACCENT = "linear-gradient(135deg, #2563eb, #ec4899);";
 
 const quotaInfo = [
   {
@@ -47,7 +47,7 @@ function ManagementQuota() {
               {quotaInfo.map((item, index) => (
                 <div key={index} className="info-card">
                   {/* ICON */}
-                  <div className="icon-box" style={{ background: ICON_ACCENT }}>
+                  <div className="icon-box">
                     <span>{item.icon}</span>
                   </div>
 

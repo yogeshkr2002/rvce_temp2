@@ -107,7 +107,7 @@
   transform: translateX(-50%);
   width: 45px;
   height: 45px;
-  background: #3ce031;
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   color: white;
   border-radius: 50%;
   display: flex;

@@ -102,7 +102,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #3ce031;
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -115,7 +115,7 @@
 }
 
 .faq-item.open .faq-icon {
-  background: #3ce031;
+  background: linear-gradient(135deg, #2563eb, #ec4899);
 }
 
 /* ANSWER */

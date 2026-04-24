@@ -89,6 +89,7 @@
   align-items: center;
   margin-right: 20px;
   flex-shrink: 0;
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   /* background set via inline style */
 }
 
