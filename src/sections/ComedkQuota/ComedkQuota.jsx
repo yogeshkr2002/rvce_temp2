@@ -30,9 +30,21 @@ function ComedkQuota() {
 
             {info.map((item, index) => (
               <div className="kcet-card" key={index}>
-                <div className="number">{index + 1}</div>
+                <div
+                  className="number"
+                  style={{
+                    background: "linear-gradient(135deg, #2563eb, #ec4899)",
+                  }}
+                >
+                  {index + 1}
+                </div>
                 <p>{item}</p>
-                <div className="accent"></div>
+                <div
+                  className="accent"
+                  style={{
+                    background: "linear-gradient(135deg, #2563eb, #ec4899)",
+                  }}
+                ></div>
               </div>
             ))}
           </div>

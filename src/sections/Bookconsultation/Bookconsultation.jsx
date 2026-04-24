@@ -5,6 +5,7 @@ import "./BookConsultation.css";
 export default function BookConsultation() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
@@ -28,10 +29,10 @@ export default function BookConsultation() {
             <h3>Why Book Consultation?</h3>
 
             <ul className="consult-points">
-              <li>✔ Direct admission guidance</li>
-              <li>✔ Instant response via call/WhatsApp</li>
-              <li>✔ Expert counselling for branch selection</li>
-              <li>✔ Transparent fee structure</li>
+              <li>Direct admission guidance</li>
+              <li>Instant response via call/WhatsApp</li>
+              <li>Expert counselling for branch selection</li>
+              <li>Transparent fee structure</li>
             </ul>
 
             <a
@@ -40,7 +41,6 @@ export default function BookConsultation() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaWhatsapp size={20} />
               WhatsApp Now
             </a>
           </div>
@@ -63,6 +63,13 @@ export default function BookConsultation() {
                   placeholder="Phone Number"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                />
+
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
 
                 <select>

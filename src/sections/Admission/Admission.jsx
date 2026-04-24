@@ -12,7 +12,6 @@ const data = [
     title: "MANAGEMENT QUOTA",
     desc: "Direct admission — 25% of seats",
   },
-
   {
     name: "COMEDK",
     value: 30,
@@ -33,7 +32,12 @@ const data = [
   },
 ];
 
-/* 🔥 IMPROVED LABEL - ALWAYS VISIBLE WITH 3D EFFECT */
+/*
+  Label fix:
+  - Use a single midpoint radius that stays well inside the arc
+  - No dy offset — anchor text directly at (x, y) with dominantBaseline="central"
+  - Shadow offset is small (0.8px) so it never pushes the % outside
+*/
 const renderLabel = ({
   cx,
   cy,
@@ -41,45 +45,39 @@ const renderLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  name,
-  fill,
 }) => {
   const RAD = Math.PI / 180;
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+  // 0.55 keeps the label centred in the visible band of the arc for all slice sizes
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.55;
   const x = cx + radius * Math.cos(-midAngle * RAD);
   const y = cy + radius * Math.sin(-midAngle * RAD);
+  const label = `${Math.round(percent * 100)}%`;
 
   return (
-    <g>
-      {/* Shadow text for 3D depth */}
+    <g style={{ pointerEvents: "none" }}>
+      {/* Drop-shadow copy */}
       <text
-        x={x + 1}
-        y={y + 1}
-        fill="rgba(0, 0, 0, 0.1)"
+        x={x + 0.8}
+        y={y + 0.8}
         textAnchor="middle"
         dominantBaseline="central"
-        fontSize={12}
-        fontWeight="700"
-        style={{ pointerEvents: "none" }}
+        fontSize={13}
+        fontWeight="800"
+        fill="rgba(0,0,0,0.18)"
       >
-        <tspan x={x + 1} dy="14">
-          {`${Math.round(percent * 100)}%`}
-        </tspan>
+        {label}
       </text>
       {/* Main label */}
       <text
         x={x}
         y={y}
-        fill="#ffffff"
         textAnchor="middle"
         dominantBaseline="central"
-        fontSize={12}
-        fontWeight="700"
-        style={{ pointerEvents: "none" }}
+        fontSize={13}
+        fontWeight="800"
+        fill="#ffffff"
       >
-        <tspan x={x} dy="14">
-          {`${Math.round(percent * 100)}%`}
-        </tspan>
+        {label}
       </text>
     </g>
   );
@@ -139,6 +137,8 @@ function Admission() {
                   dataKey="value"
                   labelLine={false}
                   label={renderLabel}
+                  /* Disable Recharts' entry animation so labels show immediately */
+                  isAnimationActive={false}
                   onMouseEnter={(_, i) => setActiveIndex(i)}
                   onMouseLeave={() => setActiveIndex(null)}
                 >
@@ -164,7 +164,7 @@ function Admission() {
                 </Pie>
               </PieChart>
 
-              {/* CENTER - WITH ENHANCED 3D EFFECT */}
+              {/* CENTER */}
               <div
                 className={`center-circle ${activeIndex !== null ? "active" : ""}`}
               >
@@ -175,7 +175,7 @@ function Admission() {
 
             <p className="hint">✨ Hover any slice to see 3D effect</p>
 
-            {/* LEGEND - INTERACTIVE */}
+            {/* LEGEND */}
             <div className="legend">
               {data.map((item, i) => (
                 <div
@@ -211,7 +211,7 @@ function Admission() {
 
                 <div className="quota-text">
                   <h4>{item.title}</h4>
-                  <p className="subtitle">{item.desc}</p>
+                  <p>{item.desc}</p>
                 </div>
               </div>
             ))}

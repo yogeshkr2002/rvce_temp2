@@ -32,7 +32,7 @@ function CollegePage() {
       <ComedkQuota />
       <KcetQuota />
       <FAQ />
-      {/* <Disclaimer /> */}
+      <Disclaimer />
 
       {/* Fixed bottom contact buttons — mobile only */}
       <div className="fixed-contact-btns">

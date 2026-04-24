@@ -41,6 +41,7 @@
   display: grid;
   grid-template-columns: 6fr 4fr;
   gap: 30px;
+  /* Both columns stretch to the height of the tallest one */
   align-items: stretch;
 }
 
@@ -50,8 +51,9 @@
   border: 1px solid #bfdbfe;
   padding: 28px;
   border-radius: 16px;
-  height: 100%;
   box-shadow: 0 4px 12px rgba(30, 58, 138, 0.06);
+  /* Each card fills its grid cell fully */
+  box-sizing: border-box;
 }
 
 /* ================= LEFT SIDE ================= */
@@ -59,7 +61,8 @@
 .consult-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* Points list grows to fill; button stays at bottom */
+  justify-content: space-between;
 }
 
 /* HEADING */
@@ -74,10 +77,12 @@
 .consult-points {
   list-style: none;
   padding: 0;
-  margin-bottom: 25px;
+  margin: 0 0 25px 0;
   display: flex;
   flex-direction: column;
+  /* Gap distributes evenly so list fills vertical space */
   gap: 14px;
+  flex: 1;
 }
 
 /* INTERACTIVE CARDS */
@@ -94,6 +99,8 @@
   color: #1f2937;
   transition: all 0.2s ease;
   cursor: pointer;
+  /* Each li grows equally so all 4 fill the available height */
+  flex: 1;
 }
 
 /* ICON */
@@ -101,6 +108,7 @@
   content: "✔";
   width: 30px;
   height: 30px;
+  min-width: 30px;
   background: linear-gradient(135deg, #2563eb, #ec4899);
   color: white;
   border-radius: 8px;
@@ -120,7 +128,8 @@
 
 /* WHATSAPP BUTTON */
 .whatsapp-btn {
-  display: inline-flex;
+  width: 100%;
+  /* display: flex; */
   align-items: center;
   gap: 8px;
   padding: 14px 22px;
@@ -131,6 +140,9 @@
   font-size: 16px;
   font-weight: 700;
   transition: all 0.2s ease;
+  /* Stays at the bottom of the left card */
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 .whatsapp-btn:hover {
@@ -144,22 +156,25 @@
 .consult-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 14px;
+  /* Form fields spread to fill full card height */
+  justify-content: space-between;
+  gap: 0;
 }
 
 /* FORM TITLE */
 .consult-form h3 {
   font-size: 26px;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   color: #1e3a8a;
+  flex-shrink: 0;
 }
 
-/* INPUTS */
+/* INPUTS & SELECT — each grows to fill available height equally */
 .consult-form input,
 .consult-form select {
-  padding: 14px;
+  flex: 1;
+  padding: 0 20px;
   border-radius: 10px;
   border: 1px solid #bfdbfe;
   font-size: 15px;
@@ -168,6 +183,9 @@
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
+  /* Min height so fields never collapse too small */
+  min-height: 52px;
+  margin-bottom: 12px;
 }
 
 .consult-form input:focus,
@@ -176,11 +194,11 @@
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
-/* BUTTON */
+/* BUTTON — fixed height, sits at the bottom */
 .consult-form button {
   background: #1e3a8a;
   color: white;
-  padding: 14px;
+  padding: 16px;
   border: none;
   border-radius: 10px;
   font-size: 16px;
@@ -188,6 +206,8 @@
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 .consult-form button:hover {
@@ -198,6 +218,11 @@
 
 /* SUCCESS */
 .success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   text-align: center;
   padding: 20px;
 }
@@ -218,6 +243,24 @@
 @media (max-width: 992px) {
   .consult-layout {
     grid-template-columns: 1fr;
+  }
+
+  /* On stacked layout, natural height is fine */
+  .consult-left,
+  .consult-form {
+    justify-content: flex-start;
+  }
+
+  .consult-points li {
+    flex: unset;
+  }
+
+  .whatsapp-btn {
+    margin-top: 0;
+  }
+
+  .consult-form button {
+    margin-top: 0;
   }
 }
 
