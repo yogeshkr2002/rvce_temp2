@@ -37,7 +37,7 @@ function Hero() {
           <div className="hero-buttons">
             <button className="btn-primary">Book Free Consultation →</button>
 
-            <button className="btn-secondary">Explore Admissions</button>
+            {/* <button className="btn-secondary">Explore Admissions</button> */}
           </div>
         </div>
       </div>

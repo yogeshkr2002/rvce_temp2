@@ -37,6 +37,7 @@
   display: flex;
   align-items: center;
   padding-left: 5%;
+  padding-top: 40vh;
 }
 
 /* LEFT SECTION */
@@ -100,7 +101,7 @@
 
 /* PRIMARY BUTTON */
 .btn-primary {
-  background: #1e3a8a;
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   color: #fff;
   padding: 14px 28px;
   border-radius: 10px;

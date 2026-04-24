@@ -342,11 +342,7 @@ const CategoryDesc = ({ cat }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
-      className="cat-desc"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className="cat-desc">
       {/* Gradient accent bar — same slide-in animation as branch cards */}
       <div
         className="cat-desc-accent-bar"
