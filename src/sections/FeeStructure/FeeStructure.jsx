@@ -17,6 +17,14 @@ import {
   FaBrain,
 } from "react-icons/fa";
 
+/* ── Single unified accent (CS blue) used across all categories ── */
+const ACCENT = {
+  accent: "#1E3A8A",
+  accentBg: "rgba(30,58,138,0.08)",
+  accentBorder: "rgba(30,58,138,0.35)",
+  accentShadow: "rgba(30,58,138,0.14)",
+};
+
 const categories = [
   {
     id: "cs",
@@ -25,13 +33,9 @@ const categories = [
     desc: "RVCE's CS programs are among India's most competitive — equipped with world-class labs, tie-ups with Google, Microsoft & Amazon, and near-100% placement records.",
     stats: [
       { label: "Programs", value: "4" },
-      { label: "1st Yr from", value: "₹22L" },
       { label: "Avg Package", value: "18+ LPA" },
     ],
-    accent: "#1E3A8A",
-    accentBg: "rgba(30,58,138,0.08)",
-    accentBorder: "rgba(30,58,138,0.35)",
-    accentShadow: "rgba(30,58,138,0.14)",
+    ...ACCENT,
     branches: [
       {
         title: "Computer Science",
@@ -67,16 +71,12 @@ const categories = [
     id: "circuit",
     label: "Circuit Branches",
     tagline: "Building tomorrow's electronics",
-    desc: "RVCE's electronics programs offer deep expertise in VLSI, signal processing, and embedded systems .",
+    desc: "RVCE's electronics programs offer deep expertise in VLSI, signal processing, and embedded systems.",
     stats: [
       { label: "Programs", value: "3" },
-      { label: "1st Yr from", value: "₹7L" },
       { label: "Specialised Labs", value: "20+" },
     ],
-    accent: "#7c3aed",
-    accentBg: "rgba(124,58,237,0.08)",
-    accentBorder: "rgba(124,58,237,0.35)",
-    accentShadow: "rgba(124,58,237,0.14)",
+    ...ACCENT,
     branches: [
       {
         title: "Electronics & Telecommunication",
@@ -108,13 +108,9 @@ const categories = [
     desc: "RVCE's core engineering programs have shaped India's industry for over 60 years — producing civil, mechanical, chemical, and aerospace engineers who lead across sectors.",
     stats: [
       { label: "Programs", value: "4" },
-      { label: "1st Yr from", value: "₹4.5L" },
       { label: "Est.", value: "1963" },
     ],
-    accent: "#16a34a",
-    accentBg: "rgba(22,163,74,0.08)",
-    accentBorder: "rgba(22,163,74,0.35)",
-    accentShadow: "rgba(22,163,74,0.14)",
+    ...ACCENT,
     branches: [
       {
         title: "Civil Engineering",
@@ -150,16 +146,12 @@ const categories = [
     id: "other",
     label: "Other Branches",
     tagline: "Specialised & interdisciplinary",
-    desc: "Biotechnology and Industrial Management at RVCE combine scientific rigour with management depth .",
+    desc: "Biotechnology and Industrial Management at RVCE combine scientific rigour with management depth.",
     stats: [
       { label: "Programs", value: "2" },
-      { label: "1st Yr from", value: "₹6L" },
       { label: "Placement", value: "100%" },
     ],
-    accent: "#0e9488",
-    accentBg: "rgba(14,148,136,0.08)",
-    accentBorder: "rgba(14,148,136,0.35)",
-    accentShadow: "rgba(14,148,136,0.14)",
+    ...ACCENT,
     branches: [
       {
         title: "Biotechnology",
@@ -197,10 +189,6 @@ const BranchCard = ({ b, cat }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        "--card-accent": cat.accent,
-        "--card-accent-bg": cat.accentBg,
-        "--card-accent-border": cat.accentBorder,
-        "--card-accent-shadow": cat.accentShadow,
         borderColor: hovered ? cat.accentBorder : undefined,
         boxShadow: hovered ? `0 10px 28px ${cat.accentShadow}` : undefined,
         transform: hovered ? "translateY(-4px)" : undefined,
@@ -236,7 +224,7 @@ const BranchCard = ({ b, cat }) => {
       <div className="bc-table-row">
         <div className="bc-col">
           <span>1st Yr</span>
-          <strong style={{ color: cat.accent }}>₹{b.y1}L</strong>
+          <strong>₹{b.y1}L</strong>
         </div>
         <div className="bc-col">
           <span>2nd Yr</span>

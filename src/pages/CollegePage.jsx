@@ -13,6 +13,7 @@ import ComedkQuota from "../sections/ComedkQuota/ComedkQuota";
 import KcetQuota from "../sections/KcetQuota/KcetQuota";
 import FAQ from "../sections/Placement/Placement";
 import { FaWhatsapp, FaPhone } from "react-icons/fa";
+import Disclaimer from "../sections/Disclaimer/Disclaimer";
 
 function CollegePage() {
   return (
@@ -31,6 +32,7 @@ function CollegePage() {
       <ComedkQuota />
       <KcetQuota />
       <FAQ />
+      {/* <Disclaimer /> */}
 
       {/* Fixed bottom contact buttons — mobile only */}
       <div className="fixed-contact-btns">

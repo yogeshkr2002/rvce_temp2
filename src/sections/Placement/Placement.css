@@ -102,7 +102,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #1e3a8a;
+  background: #3ce031;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -115,7 +115,7 @@
 }
 
 .faq-item.open .faq-icon {
-  background: #1e40af;
+  background: #3ce031;
 }
 
 /* ANSWER */

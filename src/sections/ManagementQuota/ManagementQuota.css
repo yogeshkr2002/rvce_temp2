@@ -69,7 +69,6 @@
   background: #dbeafe;
   border-radius: 16px;
   padding: 12px 16px;
-  position: relative;
   border: 1px solid #bfdbfe;
   transition: all 0.2s ease;
 }
@@ -79,7 +78,7 @@
   box-shadow: 0 8px 20px rgba(30, 58, 138, 0.12);
 }
 
-/* BIGGER ICON */
+/* ICON BOX */
 .icon-box {
   width: 65px;
   height: 65px;
@@ -88,9 +87,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
   margin-right: 20px;
   flex-shrink: 0;
+  /* background set via inline style */
 }
 
 /* TEXT */
@@ -107,37 +106,10 @@
 /* RIGHT STRIP */
 .right-accent {
   width: 6px;
-  height: 70%;
   border-radius: 10px;
-}
-
-/* COLORS */
-.info-card.blue .icon-box {
-  background: #1e3a8a;
-}
-.info-card.blue .right-accent {
-  background: #1e3a8a;
-}
-
-.info-card.teal .icon-box {
-  background: #0ea5a5;
-}
-.info-card.teal .right-accent {
-  background: #0ea5a5;
-}
-
-.info-card.green .icon-box {
-  background: #16a34a;
-}
-.info-card.green .right-accent {
-  background: #16a34a;
-}
-
-.info-card.purple .icon-box {
-  background: #7c3aed;
-}
-.info-card.purple .right-accent {
-  background: #7c3aed;
+  align-self: stretch;
+  flex-shrink: 0;
+  /* background set via inline style */
 }
 
 /* RESPONSIVE */

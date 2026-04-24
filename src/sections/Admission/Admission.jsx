@@ -4,6 +4,25 @@ import { useState, useRef } from "react";
 
 const data = [
   {
+    name: "MANAGEMENT",
+    value: 25,
+    color: "#f97316",
+    darkColor: "#ea580c",
+    lightColor: "#fb923c",
+    title: "MANAGEMENT QUOTA",
+    desc: "Direct admission — 25% of seats",
+  },
+
+  {
+    name: "COMEDK",
+    value: 30,
+    color: "#3ce031",
+    darkColor: "#3ce031",
+    lightColor: "#3ce031",
+    title: "COMEDK QUOTA",
+    desc: "All-India entrance — 30% of seats",
+  },
+  {
     name: "KCET",
     value: 45,
     color: "#1d4ed8",
@@ -11,25 +30,6 @@ const data = [
     lightColor: "#3b82f6",
     title: "KCET / KEA QUOTA",
     desc: "Karnataka government quota — 45% of seats",
-  },
-
-  {
-    name: "COMEDK",
-    value: 30,
-    color: "#aa2b2bbe",
-    darkColor: "#cc5252fa",
-    lightColor: "#cd5b5b4e",
-    title: "COMEDK QUOTA",
-    desc: "All-India entrance — 30% of seats",
-  },
-  {
-    name: "MGMT",
-    value: 25,
-    color: "#f97316",
-    darkColor: "#ea580c",
-    lightColor: "#fb923c",
-    title: "MANAGEMENT QUOTA",
-    desc: "Direct admission — 25% of seats",
   },
 ];
 
@@ -62,7 +62,6 @@ const renderLabel = ({
         fontWeight="700"
         style={{ pointerEvents: "none" }}
       >
-        {name}
         <tspan x={x + 1} dy="14">
           {`${Math.round(percent * 100)}%`}
         </tspan>
@@ -78,7 +77,6 @@ const renderLabel = ({
         fontWeight="700"
         style={{ pointerEvents: "none" }}
       >
-        {name}
         <tspan x={x} dy="14">
           {`${Math.round(percent * 100)}%`}
         </tspan>
@@ -96,7 +94,7 @@ function Admission() {
       <div className="container">
         <div className="admission-header">
           <h2>ADMISSION</h2>
-          <p>
+          <p className="subtitle">
             RVCE has three types of admission quotas under a formal seat-sharing
             agreement.
           </p>
@@ -213,7 +211,7 @@ function Admission() {
 
                 <div className="quota-text">
                   <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
+                  <p className="subtitle">{item.desc}</p>
                 </div>
               </div>
             ))}

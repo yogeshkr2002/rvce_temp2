@@ -1,25 +1,23 @@
 import "./ManagementQuota.css";
 
+const ICON_ACCENT = "#3ce031";
+
 const quotaInfo = [
   {
     text: "25% of seats are available under this Quota",
     icon: "🎓",
-    color: "blue",
   },
   {
     text: "Direct admission is offered under the Management Quota",
     icon: "📄",
-    color: "teal",
   },
   {
     text: "Admission is based on eligibility + seat availability",
     icon: "📋",
-    color: "green",
   },
   {
     text: "Ideal for students with average or moderate ranks",
     icon: "📈",
-    color: "purple",
   },
 ];
 
@@ -47,9 +45,9 @@ function ManagementQuota() {
           <div className="quota-content">
             <div className="info-cards">
               {quotaInfo.map((item, index) => (
-                <div key={index} className={`info-card ${item.color}`}>
+                <div key={index} className="info-card">
                   {/* ICON */}
-                  <div className="icon-box">
+                  <div className="icon-box" style={{ background: ICON_ACCENT }}>
                     <span>{item.icon}</span>
                   </div>
 
@@ -59,7 +57,10 @@ function ManagementQuota() {
                   </div>
 
                   {/* RIGHT STRIP */}
-                  <div className="right-accent"></div>
+                  <div
+                    className="right-accent"
+                    style={{ background: ICON_ACCENT }}
+                  />
                 </div>
               ))}
             </div>

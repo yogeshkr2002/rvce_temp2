@@ -123,31 +123,31 @@
 
 /* COLORS */
 .info-card.red .icon-box {
-  background: #1e3a8a;
+  background: #3ce031;
 }
 .info-card.red .right-accent {
-  background: linear-gradient(180deg, #1e3a8a, #3b82f6);
+  background: #3ce031;
 }
 
 .info-card.blue .icon-box {
-  background: #2563eb;
+  background: #3ce031;
 }
 .info-card.blue .right-accent {
-  background: #2563eb;
+  background: #3ce031;
 }
 
 .info-card.green .icon-box {
-  background: #16a34a;
+  background: #3ce031;
 }
 .info-card.green .right-accent {
-  background: #16a34a;
+  background: #3ce031;
 }
 
 .info-card.purple .icon-box {
-  background: #7c3aed;
+  background: #3ce031;
 }
 .info-card.purple .right-accent {
-  background: #7c3aed;
+  background: #3ce031;
 }
 
 /* RESPONSIVE */
