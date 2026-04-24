@@ -1,5 +1,5 @@
 import "./Hero.css";
-import rvceImage from "../../assets/rvce_img2.jpeg";
+import rvceImage from "../../assets/rvce_img1.jpg";
 
 function Hero() {
   return (
