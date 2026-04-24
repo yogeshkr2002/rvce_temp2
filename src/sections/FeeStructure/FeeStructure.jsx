@@ -150,7 +150,7 @@ const categories = [
     id: "other",
     label: "Other Branches",
     tagline: "Specialised & interdisciplinary",
-    desc: "Biotechnology and Industrial Management at RVCE combine scientific rigour with management depth — opening careers in pharma, biotech R&D, and manufacturing leadership.",
+    desc: "Biotechnology and Industrial Management at RVCE combine scientific rigour with management depth .",
     stats: [
       { label: "Programs", value: "2" },
       { label: "1st Yr from", value: "₹6L" },
