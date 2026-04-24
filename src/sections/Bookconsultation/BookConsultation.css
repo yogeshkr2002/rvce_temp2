@@ -17,7 +17,7 @@
   text-align: center;
   font-size: 40px;
   font-weight: 800;
-  color: #1E3A8A;
+  color: #1e3a8a;
   margin-bottom: 20px;
   letter-spacing: -0.5px;
 }
@@ -26,7 +26,7 @@
 .subtitle-box {
   max-width: 900px;
   margin: 0 auto 40px;
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: white;
   padding: 16px;
   text-align: center;
@@ -46,8 +46,8 @@
 
 /* COMMON CARD STYLE */
 .card {
-  background: #DBEAFE;
-  border: 1px solid #BFDBFE;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
   padding: 28px;
   border-radius: 16px;
   height: 100%;
@@ -67,7 +67,7 @@
   font-size: 26px;
   font-weight: 800;
   margin-bottom: 20px;
-  color: #1E3A8A;
+  color: #1e3a8a;
 }
 
 /* POINTS */
@@ -87,8 +87,8 @@
   gap: 12px;
   padding: 14px 16px;
   border-radius: 14px;
-  background: #EFF6FF;
-  border: 1px solid #BFDBFE;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
   font-size: 16px;
   font-weight: 600;
   color: #1f2937;
@@ -101,7 +101,7 @@
   content: "✔";
   width: 30px;
   height: 30px;
-  background: #1E3A8A;
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   color: white;
   border-radius: 8px;
   display: flex;
@@ -124,7 +124,7 @@
   align-items: center;
   gap: 8px;
   padding: 14px 22px;
-  background: #25D366;
+  background: #25d366;
   color: white;
   border-radius: 10px;
   text-decoration: none;
@@ -134,7 +134,7 @@
 }
 
 .whatsapp-btn:hover {
-  background: #1DA851;
+  background: #1da851;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
 }
@@ -153,7 +153,7 @@
   font-size: 26px;
   font-weight: 800;
   margin-bottom: 10px;
-  color: #1E3A8A;
+  color: #1e3a8a;
 }
 
 /* INPUTS */
@@ -161,22 +161,24 @@
 .consult-form select {
   padding: 14px;
   border-radius: 10px;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #bfdbfe;
   font-size: 15px;
   outline: none;
   background: #ffffff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .consult-form input:focus,
 .consult-form select:focus {
-  border-color: #1E3A8A;
+  border-color: #1e3a8a;
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
 /* BUTTON */
 .consult-form button {
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: white;
   padding: 14px;
   border: none;
