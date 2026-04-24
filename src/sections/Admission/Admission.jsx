@@ -188,7 +188,7 @@ function Admission() {
                     className="dot"
                     style={{ background: item.color }}
                   ></span>
-                  {item.name}
+                  <span style={{ fontSize: "14px" }}>{item.name}</span>
                 </div>
               ))}
             </div>

@@ -72,9 +72,9 @@
 
 .cat-layout {
   display: grid;
-  grid-template-columns: 36fr 64fr;
+  /* Increased left column from 36 → 42 */
+  grid-template-columns: 42fr 58fr;
   gap: 22px;
-  /* align-items: stretch ensures both columns match in height */
   align-items: stretch;
 }
 
@@ -83,20 +83,47 @@
 .cat-left {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  /* Fill full height of the grid row */
   height: 100%;
 }
 
-/* DESC BOX */
+/* ================= LEFT CONTENT BOX ================= */
+
 .cat-desc {
   background: #eff6ff;
   border: 1px solid #bfdbfe;
-  border-radius: 16px;
-  padding: 22px 20px 18px;
-  /* Does not grow — only takes as much space as it needs */
-  flex-shrink: 0;
+  border-radius: 14px;
+  padding: 22px 20px 20px;
+  position: relative;
+  overflow: hidden;
+  /* Fills the full left column height */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  cursor: default;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.cat-desc:hover {
+  border-color: rgba(30, 58, 138, 0.35);
+  box-shadow: 0 10px 28px rgba(30, 58, 138, 0.12);
+}
+
+/* Gradient accent bar — same slide-in animation as .bc-accent-bar */
+.cat-desc-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================= TAGLINE & DESC ================= */
 
 .cat-tagline {
   font-size: 11px;
@@ -105,19 +132,124 @@
   letter-spacing: 1px;
   color: #9ca3af;
   margin: 0 0 10px;
+  flex-shrink: 0;
 }
 
 .cat-text {
   font-size: 14px;
   color: #4b5563;
   line-height: 1.7;
-  margin: 0 0 18px;
+  margin: 0 0 16px;
+  flex-shrink: 0;
 }
 
-/* STATS ROW */
+/* ================= HIGHLIGHTS LIST ================= */
+
+.cat-highlights {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.cat-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.cat-highlight-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+/* ================= EXTRA STAT PILLS ================= */
+
+.cat-extra-stats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.cat-extra-stat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 9px 10px;
+}
+
+.ces-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.ces-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ces-text strong {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.ces-text span {
+  font-size: 9px;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+/* ================= NOTE STRIP ================= */
+
+.cat-note {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.cat-note p {
+  font-size: 12px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ================= STATS ROW ================= */
+
 .cat-stats {
   display: flex;
   gap: 8px;
+  flex-shrink: 0;
+  /* Pushed to bottom via flex column on cat-desc */
+  margin-top: auto;
 }
 
 .cat-stat {
@@ -145,34 +277,11 @@
   letter-spacing: 0.5px;
 }
 
-/* IMAGE — grows to fill remaining height on the left side */
-.cat-img-wrap {
-  flex: 1;
-  /* min-height prevents collapse when content is sparse */
-  min-height: 80px;
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-}
-
-.cat-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cat-img-overlay {
-  position: absolute;
-  inset: 0;
-}
-
 /* ================= RIGHT SIDE ================= */
 
 .cat-right {
   display: flex;
   flex-direction: column;
-  /* Fill full height of the grid row */
   height: 100%;
 }
 
@@ -182,7 +291,6 @@
   display: grid;
   gap: 12px;
   flex: 1;
-  /* Each card row takes equal share of available height */
   height: 100%;
   grid-auto-rows: 1fr;
 }
@@ -204,12 +312,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* Fills its grid cell completely */
   height: 100%;
   box-sizing: border-box;
 }
 
-/* Animated top accent bar */
+/* Gradient accent bar — slides in from left on hover */
 .bc-accent-bar {
   position: absolute;
   top: 0;
@@ -230,6 +337,7 @@
   margin-bottom: 14px;
 }
 
+/* Icon: always gradient bg, always white */
 .bc-icon {
   width: 36px;
   height: 36px;
@@ -239,9 +347,6 @@
   justify-content: center;
   font-size: 15px;
   flex-shrink: 0;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
 }
 
 .bc-title-wrap {
@@ -263,21 +368,19 @@
   font-weight: 600;
 }
 
-/* ===== FEE TABLE INSIDE CARD — 4-year default ===== */
+/* ===== FEE TABLE — 4-year ===== */
 
 .bc-table-row {
   display: grid;
-  /* 4 year cols + 1 total col (wider) */
   grid-template-columns: 1fr 1fr 1fr 1fr 1.3fr;
   gap: 6px;
   align-items: stretch;
   flex-shrink: 0;
 }
 
-/* ===== FEE TABLE INSIDE CARD — 5-year variant (B.Arch) ===== */
+/* ===== FEE TABLE — 5-year (B.Arch) ===== */
 
 .bc-table-row--5yr {
-  /* 5 year cols + 1 total col (wider) */
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.3fr;
 }
 
@@ -326,7 +429,7 @@
 
 @media (max-width: 1024px) {
   .cat-layout {
-    grid-template-columns: 40fr 60fr;
+    grid-template-columns: 44fr 56fr;
   }
 }
 
@@ -337,7 +440,6 @@
 
   .cat-layout {
     grid-template-columns: 1fr;
-    /* Reset height constraint on mobile — stack naturally */
     align-items: start;
   }
 
@@ -345,8 +447,8 @@
     height: auto;
   }
 
-  .cat-img-wrap {
-    display: none;
+  .cat-desc {
+    flex: unset;
   }
 
   .cat-right {
@@ -356,6 +458,7 @@
   .branch-grid {
     height: auto;
     grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr !important;
   }
 
   .branch-card {
@@ -366,14 +469,8 @@
     flex: unset;
   }
 
-  /* On mobile all grids go 2-col */
-  .branch-grid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  /* 5-year row wraps more gracefully on tablet */
-  .bc-table-row--5yr {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.3fr;
+  .cat-extra-stats {
+    flex-wrap: wrap;
   }
 }
 
@@ -390,7 +487,6 @@
     font-size: 17px;
   }
 
-  /* Single column on small screens */
   .branch-grid {
     grid-template-columns: 1fr !important;
   }
@@ -403,17 +499,19 @@
     min-width: 80px;
   }
 
+  .cat-extra-stat {
+    min-width: calc(50% - 4px);
+  }
+
   .bc-name {
     font-size: 12px;
   }
 
-  /* 4-year row — tighten on small screens */
   .bc-table-row {
     grid-template-columns: 1fr 1fr 1fr 1fr 1.3fr;
     gap: 4px;
   }
 
-  /* 5-year row — compress columns equally */
   .bc-table-row--5yr {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.3fr;
     gap: 3px;
