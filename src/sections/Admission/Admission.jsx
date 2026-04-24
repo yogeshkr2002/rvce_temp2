@@ -204,7 +204,7 @@ function Admission() {
                 onMouseLeave={() => setActiveIndex(null)}
               >
                 <div className="percent-wrapper">
-                  <div className="percent" style={{ color: item.color }}>
+                  <div className="percent" style={{ color: "#ffffff" }}>
                     {item.value}%
                   </div>
                 </div>

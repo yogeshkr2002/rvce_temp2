@@ -194,7 +194,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   border-radius: 16px;
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.06),
