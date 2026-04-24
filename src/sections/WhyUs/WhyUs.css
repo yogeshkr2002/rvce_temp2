@@ -1,6 +1,6 @@
 .why-section {
   padding: 70px 0;
-  background: #EFF6FF;
+  background: #ffffff;
 }
 
 /* CONTAINER */
@@ -15,7 +15,7 @@
   text-align: center;
   font-size: 42px;
   font-weight: 800;
-  color: #1E3A8A;
+  color: #1e3a8a;
   margin-bottom: 20px;
   letter-spacing: -0.5px;
 }
@@ -24,7 +24,7 @@
 .subtitle-box {
   max-width: 900px;
   margin: 0 auto 40px;
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: #ffffff;
   text-align: center;
   padding: 16px;
@@ -73,11 +73,11 @@
 .info-card {
   display: flex;
   align-items: center;
-  background: #DBEAFE;
+  background: #dbeafe;
   border-radius: 16px;
   padding: 14px 18px;
   position: relative;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #bfdbfe;
   transition: all 0.2s ease;
 }
 
@@ -123,10 +123,10 @@
 
 /* COLORS */
 .info-card.red .icon-box {
-  background: #1E3A8A;
+  background: #1e3a8a;
 }
 .info-card.red .right-accent {
-  background: linear-gradient(180deg, #1E3A8A, #3b82f6);
+  background: linear-gradient(180deg, #1e3a8a, #3b82f6);
 }
 
 .info-card.blue .icon-box {

@@ -11,7 +11,7 @@
 
 .admission-header h2 {
   font-size: 40px;
-  color: #1E3A8A;
+  color: #1e3a8a;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
@@ -30,16 +30,16 @@
 /* LEFT */
 .left-chart {
   flex: 1;
-  background: #EFF6FF;
+  background: #eff6ff;
   border-radius: 20px;
   padding: 30px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(30, 58, 138, 0.06);
-  border: 1px solid #BFDBFE;
+  border: 1px solid #bfdbfe;
 }
 
 .left-chart h3 {
-  color: #1E3A8A;
+  color: #1e3a8a;
   font-size: 18px;
   font-weight: 700;
 }
@@ -71,14 +71,14 @@
   position: absolute;
   width: 95px;
   height: 95px;
-  background: linear-gradient(135deg, #ffffff 0%, #EFF6FF 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow:
-    0 0 0 10px #DBEAFE,
+    0 0 0 10px #dbeafe,
     0 2px 8px rgba(0, 0, 0, 0.08),
     inset 0 1px 3px rgba(255, 255, 255, 0.5);
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -88,7 +88,7 @@
 .center-circle.active {
   transform: scale(1.08);
   box-shadow:
-    0 0 0 10px #DBEAFE,
+    0 0 0 10px #dbeafe,
     0 8px 20px rgba(30, 58, 138, 0.2),
     inset 0 1px 3px rgba(255, 255, 255, 0.5);
 }
@@ -100,7 +100,7 @@
 }
 
 .center-circle strong {
-  color: #1E3A8A;
+  color: #1e3a8a;
   font-weight: 800;
   font-size: 16px;
   margin-top: 4px;
@@ -168,8 +168,8 @@
   gap: 25px;
   padding: 25px;
   border-radius: 16px;
-  background: #DBEAFE;
-  border: 1px solid #BFDBFE;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 2px 4px rgba(30, 58, 138, 0.05);
@@ -180,7 +180,7 @@
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 12px 24px rgba(30, 58, 138, 0.15);
   border-color: #93c5fd;
-  background: #EFF6FF;
+  background: #eff6ff;
 }
 
 .percent-wrapper {
@@ -207,7 +207,7 @@
 }
 
 .percent {
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 800;
   transition: all 0.3s ease;
 }
@@ -228,7 +228,7 @@
 
 .quota-card:hover .quota-text h4,
 .quota-card.active .quota-text h4 {
-  color: #1E3A8A;
+  color: #1e3a8a;
 }
 
 .quota-text p {

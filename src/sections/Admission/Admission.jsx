@@ -4,24 +4,6 @@ import { useState, useRef } from "react";
 
 const data = [
   {
-    name: "MGMT",
-    value: 25,
-    color: "#f97316",
-    darkColor: "#ea580c",
-    lightColor: "#fb923c",
-    title: "MANAGEMENT QUOTA",
-    desc: "Direct admission — 25% of seats",
-  },
-  {
-    name: "COMEDK",
-    value: 30,
-    color: "#ea580c",
-    darkColor: "#c2410c",
-    lightColor: "#f97316",
-    title: "COMEDK QUOTA",
-    desc: "All-India entrance — 30% of seats",
-  },
-  {
     name: "KCET",
     value: 45,
     color: "#1d4ed8",
@@ -29,6 +11,25 @@ const data = [
     lightColor: "#3b82f6",
     title: "KCET / KEA QUOTA",
     desc: "Karnataka government quota — 45% of seats",
+  },
+
+  {
+    name: "COMEDK",
+    value: 30,
+    color: "#aa2b2bbe",
+    darkColor: "#cc5252fa",
+    lightColor: "#cd5b5b4e",
+    title: "COMEDK QUOTA",
+    desc: "All-India entrance — 30% of seats",
+  },
+  {
+    name: "MGMT",
+    value: 25,
+    color: "#f97316",
+    darkColor: "#ea580c",
+    lightColor: "#fb923c",
+    title: "MANAGEMENT QUOTA",
+    desc: "Direct admission — 25% of seats",
   },
 ];
 

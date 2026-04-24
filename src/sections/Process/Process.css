@@ -1,7 +1,7 @@
 /* SECTION */
 .process-section {
   padding: 70px 0;
-  background: #EFF6FF;
+  background: #ffffff;
 }
 
 /* CONTAINER */
@@ -16,7 +16,7 @@
   text-align: center;
   font-size: 42px;
   font-weight: 800;
-  color: #1E3A8A;
+  color: #1e3a8a;
   margin-bottom: 20px;
   letter-spacing: -0.5px;
 }
@@ -25,7 +25,7 @@
 .subtitle-box {
   max-width: 900px;
   margin: 0 auto 40px;
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: white;
   padding: 16px;
   text-align: center;
@@ -45,12 +45,12 @@
 /* BOTH CARDS SAME STYLE */
 .timeline-card,
 .form-card {
-  background: #DBEAFE;
+  background: #dbeafe;
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
   height: 100%;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #bfdbfe;
 }
 
 /* ================= TIMELINE ================= */
@@ -83,14 +83,14 @@
   padding: 14px 18px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(30, 58, 138, 0.06);
-  border: 1px solid #BFDBFE;
+  border: 1px solid #bfdbfe;
 }
 
 .timeline-content h4 {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
-  color: #1E3A8A;
+  color: #1e3a8a;
 }
 
 .timeline-content p {
@@ -106,7 +106,7 @@
   transform: translateX(-50%);
   width: 45px;
   height: 45px;
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -124,7 +124,7 @@
   top: 50px;
   width: 3px;
   height: calc(100% + 20px);
-  background: #BFDBFE;
+  background: #bfdbfe;
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -133,7 +133,7 @@
 
 .form-card h3 {
   margin-bottom: 18px;
-  color: #1E3A8A;
+  color: #1e3a8a;
   font-size: 20px;
   font-weight: 700;
 }
@@ -150,17 +150,19 @@
 .form-card textarea {
   padding: 12px;
   border-radius: 10px;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #bfdbfe;
   font-size: 15px;
   outline: none;
   background: #ffffff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .form-card input:focus,
 .form-card select:focus,
 .form-card textarea:focus {
-  border-color: #1E3A8A;
+  border-color: #1e3a8a;
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
@@ -170,7 +172,7 @@
 
 /* BUTTON */
 .form-card button {
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: white;
   padding: 12px;
   border: none;
