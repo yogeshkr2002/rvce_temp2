@@ -10,22 +10,22 @@ import {
 const Institute = () => {
   const cards = [
     {
-      icon: <FaMedal />,
+      icon: <FaMedal color="white" />,
       title: "Top Rank Engineering College",
       color: "red",
     },
     {
-      icon: <FaBriefcase />,
+      icon: <FaBriefcase color="white" />,
       title: "Outstanding Placement Record",
       color: "blue",
     },
     {
-      icon: <FaUniversity />,
+      icon: <FaUniversity color="white" />,
       title: "World Class Infrastructure",
       color: "purple",
     },
     {
-      icon: <FaGraduationCap />,
+      icon: <FaGraduationCap color="white" />,
       title: "Excellent Academic Standard",
       color: "green",
     },

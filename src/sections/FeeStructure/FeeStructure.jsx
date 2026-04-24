@@ -403,7 +403,7 @@ const CategoryDesc = ({ cat }) => {
             key={i}
             style={{ borderColor: `${cat.accent}40` }}
           >
-            <strong style={{ color: cat.accent }}>{s.value}</strong>
+            <strong style={{ color: "#ffffff" }}>{s.value}</strong>
             <span>{s.label}</span>
           </div>
         ))}

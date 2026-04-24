@@ -21,7 +21,7 @@
 
 .institute-header h2 {
   font-size: 42px;
-  color: #1E3A8A;
+  color: #1e3a8a;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
@@ -39,8 +39,8 @@
 .institute-card {
   padding: 35px 20px 30px;
   border-radius: 16px;
-  background: #DBEAFE;
-  border: 1px solid #BFDBFE;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
 
   display: flex;
   flex-direction: column;
@@ -91,8 +91,8 @@
 
 /* BLUE (primary) */
 .institute-card.red .icon-box {
-  background: rgba(30, 58, 138, 0.12);
-  color: #1E3A8A;
+  background: linear-gradient(135deg, #2563eb, #ec4899);
+  color: #1e3a8a;
 }
 .institute-card.red:hover {
   box-shadow: 0 12px 25px rgba(30, 58, 138, 0.2);
@@ -101,7 +101,7 @@
 
 /* BLUE */
 .institute-card.blue .icon-box {
-  background: rgba(37, 99, 235, 0.1);
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   color: #2563eb;
 }
 .institute-card.blue:hover {
@@ -111,7 +111,7 @@
 
 /* PURPLE */
 .institute-card.purple .icon-box {
-  background: rgba(124, 58, 237, 0.1);
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   color: #7c3aed;
 }
 .institute-card.purple:hover {
@@ -121,7 +121,7 @@
 
 /* GREEN */
 .institute-card.green .icon-box {
-  background: rgba(22, 163, 74, 0.1);
+  background: linear-gradient(135deg, #2563eb, #ec4899);
   color: #16a34a;
 }
 .institute-card.green:hover {

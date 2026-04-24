@@ -257,7 +257,7 @@
   text-align: center;
   padding: 10px 6px;
   border-radius: 10px;
-  background: #ffffff;
+  background: linear-gradient(135deg, rgb(37, 99, 235), rgb(236, 72, 153));
   border: 1px solid;
 }
 
@@ -267,12 +267,13 @@
   font-weight: 800;
   line-height: 1;
   margin-bottom: 5px;
+  color: #ffffff;
 }
 
 .cat-stat span {
   font-size: 10px;
-  color: #6b7280;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
