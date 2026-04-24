@@ -74,8 +74,8 @@
   display: grid;
   grid-template-columns: 36fr 64fr;
   gap: 22px;
+  /* align-items: stretch ensures both columns match in height */
   align-items: stretch;
-  min-height: 300px;
 }
 
 /* ================= LEFT SIDE ================= */
@@ -84,6 +84,8 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  /* Fill full height of the grid row */
+  height: 100%;
 }
 
 /* DESC BOX */
@@ -92,6 +94,8 @@
   border: 1px solid #bfdbfe;
   border-radius: 16px;
   padding: 22px 20px 18px;
+  /* Does not grow — only takes as much space as it needs */
+  flex-shrink: 0;
 }
 
 .cat-tagline {
@@ -141,10 +145,11 @@
   letter-spacing: 0.5px;
 }
 
-/* IMAGE */
+/* IMAGE — grows to fill remaining height on the left side */
 .cat-img-wrap {
   flex: 1;
-  min-height: 100px;
+  /* min-height prevents collapse when content is sparse */
+  min-height: 80px;
   border-radius: 14px;
   overflow: hidden;
   position: relative;
@@ -167,6 +172,7 @@
 .cat-right {
   display: flex;
   flex-direction: column;
+  /* Fill full height of the grid row */
   height: 100%;
 }
 
@@ -176,29 +182,14 @@
   display: grid;
   gap: 12px;
   flex: 1;
+  /* Each card row takes equal share of available height */
   height: 100%;
   grid-auto-rows: 1fr;
 }
 
-/* .grid-4 {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.grid-3 {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-}
-
-.grid-2 {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-} */
-
 /* ================= BRANCH CARD ================= */
 
 .branch-card {
-  /* Unified blue tint — same as CS category */
   background: #eff6ff;
   border: 0.5px solid #bfdbfe;
   border-radius: 14px;
@@ -213,6 +204,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* Fills its grid cell completely */
   height: 100%;
   box-sizing: border-box;
 }
@@ -229,7 +221,7 @@
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* CARD TOP ROW — grows to fill available space */
+/* CARD TOP ROW */
 .bc-top {
   display: flex;
   align-items: flex-start;
@@ -271,18 +263,25 @@
   font-weight: 600;
 }
 
-/* ===== FEE TABLE INSIDE CARD ===== */
+/* ===== FEE TABLE INSIDE CARD — 4-year default ===== */
 
 .bc-table-row {
   display: grid;
+  /* 4 year cols + 1 total col (wider) */
   grid-template-columns: 1fr 1fr 1fr 1fr 1.3fr;
   gap: 6px;
   align-items: stretch;
   flex-shrink: 0;
 }
 
+/* ===== FEE TABLE INSIDE CARD — 5-year variant (B.Arch) ===== */
+
+.bc-table-row--5yr {
+  /* 5 year cols + 1 total col (wider) */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.3fr;
+}
+
 .bc-col {
-  /* White pill on the blue card bg — same look as CS */
   background: #ffffff;
   border-radius: 8px;
   padding: 7px 4px;
@@ -329,12 +328,6 @@
   .cat-layout {
     grid-template-columns: 40fr 60fr;
   }
-
-  .grid-3 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-auto-rows: 1fr;
-  }
 }
 
 @media (max-width: 768px) {
@@ -344,7 +337,12 @@
 
   .cat-layout {
     grid-template-columns: 1fr;
-    min-height: unset;
+    /* Reset height constraint on mobile — stack naturally */
+    align-items: start;
+  }
+
+  .cat-left {
+    height: auto;
   }
 
   .cat-img-wrap {
@@ -368,19 +366,14 @@
     flex: unset;
   }
 
-  .grid-4 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+  /* On mobile all grids go 2-col */
+  .branch-grid {
+    grid-template-columns: 1fr 1fr !important;
   }
 
-  .grid-3 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-
-  .grid-2 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+  /* 5-year row wraps more gracefully on tablet */
+  .bc-table-row--5yr {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.3fr;
   }
 }
 
@@ -397,10 +390,9 @@
     font-size: 17px;
   }
 
-  .grid-4,
-  .grid-3,
-  .grid-2 {
-    grid-template-columns: 1fr;
+  /* Single column on small screens */
+  .branch-grid {
+    grid-template-columns: 1fr !important;
   }
 
   .cat-stats {
@@ -415,9 +407,16 @@
     font-size: 12px;
   }
 
+  /* 4-year row — tighten on small screens */
   .bc-table-row {
     grid-template-columns: 1fr 1fr 1fr 1fr 1.3fr;
     gap: 4px;
+  }
+
+  /* 5-year row — compress columns equally */
+  .bc-table-row--5yr {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.3fr;
+    gap: 3px;
   }
 
   .bc-col strong {
@@ -426,5 +425,9 @@
 
   .bc-col.total strong {
     font-size: 12px;
+  }
+
+  .bc-col span {
+    font-size: 8px;
   }
 }

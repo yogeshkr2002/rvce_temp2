@@ -17,7 +17,6 @@ import {
   FaBrain,
 } from "react-icons/fa";
 
-/* ── Single unified accent (CS blue) used across all categories ── */
 const ACCENT = {
   accent: "#1E3A8A",
   accentBg: "rgba(30,58,138,0.08)",
@@ -127,11 +126,11 @@ const categories = [
         icon: <FaCogs />,
       },
       {
-        title: "Chemical Engineering",
-        sub: "Process & Materials",
-        y1: 4.5,
-        yRest: 4.5,
-        icon: <FaFlask />,
+        title: "Industrial Management",
+        sub: "Operations & Management",
+        y1: 6,
+        yRest: 6,
+        icon: <FaBrain />,
       },
       {
         title: "Aerospace Engineering",
@@ -161,27 +160,31 @@ const categories = [
         icon: <FaLeaf />,
       },
       {
-        title: "Industrial Management",
-        sub: "Operations & Management",
-        y1: 6,
-        yRest: 6,
-        icon: <FaBrain />,
+        title: "Chemical Engineering",
+        sub: "Process & Materials",
+        y1: 4.5,
+        yRest: 4.5,
+        icon: <FaFlask />,
       },
       {
-        title: "Industrial Management",
-        sub: "Operations & Management",
+        title: "B.Arch",
+        sub: "Architecture",
         y1: 6,
         yRest: 6,
+        fiveYear: true,
         icon: <FaBrain />,
       },
     ],
   },
 ];
 
-const total = (b) => b.y1 + b.yRest * 3;
+const total4 = (b) => b.y1 + b.yRest * 3;
+const total5 = (b) => b.y1 + b.yRest * 4;
 
 const BranchCard = ({ b, cat }) => {
   const [hovered, setHovered] = useState(false);
+  const isFiveYear = !!b.fiveYear;
+  const totalFee = isFiveYear ? total5(b) : total4(b);
 
   return (
     <div
@@ -194,7 +197,6 @@ const BranchCard = ({ b, cat }) => {
         transform: hovered ? "translateY(-4px)" : undefined,
       }}
     >
-      {/* Animated top accent bar */}
       <div
         className="bc-accent-bar"
         style={{
@@ -203,7 +205,6 @@ const BranchCard = ({ b, cat }) => {
         }}
       />
 
-      {/* Card Header */}
       <div className="bc-top">
         <div
           className="bc-icon"
@@ -220,29 +221,57 @@ const BranchCard = ({ b, cat }) => {
         </div>
       </div>
 
-      {/* Fee Columns */}
-      <div className="bc-table-row">
-        <div className="bc-col">
-          <span>1st Yr</span>
-          <strong>₹{b.y1}L</strong>
+      {isFiveYear ? (
+        <div className="bc-table-row bc-table-row--5yr">
+          <div className="bc-col">
+            <span>1st Yr</span>
+            <strong>₹{b.y1}L</strong>
+          </div>
+          <div className="bc-col">
+            <span>2nd Yr</span>
+            <strong>₹{b.yRest}L</strong>
+          </div>
+          <div className="bc-col">
+            <span>3rd Yr</span>
+            <strong>₹{b.yRest}L</strong>
+          </div>
+          <div className="bc-col">
+            <span>4th Yr</span>
+            <strong>₹{b.yRest}L</strong>
+          </div>
+          <div className="bc-col">
+            <span>5th Yr</span>
+            <strong>₹{b.yRest}L</strong>
+          </div>
+          <div className="bc-col total" style={{ background: cat.accent }}>
+            <span>Total</span>
+            <strong>₹{totalFee}L</strong>
+          </div>
         </div>
-        <div className="bc-col">
-          <span>2nd Yr</span>
-          <strong>₹{b.yRest}L</strong>
+      ) : (
+        <div className="bc-table-row">
+          <div className="bc-col">
+            <span>1st Yr</span>
+            <strong>₹{b.y1}L</strong>
+          </div>
+          <div className="bc-col">
+            <span>2nd Yr</span>
+            <strong>₹{b.yRest}L</strong>
+          </div>
+          <div className="bc-col">
+            <span>3rd Yr</span>
+            <strong>₹{b.yRest}L</strong>
+          </div>
+          <div className="bc-col">
+            <span>4th Yr</span>
+            <strong>₹{b.yRest}L</strong>
+          </div>
+          <div className="bc-col total" style={{ background: cat.accent }}>
+            <span>Total</span>
+            <strong>₹{totalFee}L</strong>
+          </div>
         </div>
-        <div className="bc-col">
-          <span>3rd Yr</span>
-          <strong>₹{b.yRest}L</strong>
-        </div>
-        <div className="bc-col">
-          <span>4th Yr</span>
-          <strong>₹{b.yRest}L</strong>
-        </div>
-        <div className="bc-col total" style={{ background: cat.accent }}>
-          <span>Total</span>
-          <strong>₹{total(b)}L</strong>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
