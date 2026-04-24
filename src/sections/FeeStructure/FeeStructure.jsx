@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FeeStructure.css";
 import rvceImg from "../../assets/rvce.jpg";
 import {
@@ -29,7 +29,9 @@ const categories = [
       { label: "Avg Package", value: "18+ LPA" },
     ],
     accent: "#1E3A8A",
-    accentBg: "rgba(30,58,138,0.12)",
+    accentBg: "rgba(30,58,138,0.08)",
+    accentBorder: "rgba(30,58,138,0.35)",
+    accentShadow: "rgba(30,58,138,0.14)",
     branches: [
       {
         title: "Computer Science",
@@ -65,15 +67,16 @@ const categories = [
     id: "circuit",
     label: "Circuit Branches",
     tagline: "Building tomorrow's electronics",
-    desc: "RVCE's electronics programs offer deep expertise in VLSI, signal processing, and embedded systems — backed by partnerships with Intel, Texas Instruments, and Samsung.",
+    desc: "RVCE's electronics programs offer deep expertise in VLSI, signal processing, and embedded systems .",
     stats: [
       { label: "Programs", value: "3" },
       { label: "1st Yr from", value: "₹7L" },
       { label: "Specialised Labs", value: "20+" },
-      { label: "Specialised Labs", value: "20+" },
     ],
     accent: "#7c3aed",
-    accentBg: "rgba(124,58,237,0.12)",
+    accentBg: "rgba(124,58,237,0.08)",
+    accentBorder: "rgba(124,58,237,0.35)",
+    accentShadow: "rgba(124,58,237,0.14)",
     branches: [
       {
         title: "Electronics & Telecommunication",
@@ -96,13 +99,6 @@ const categories = [
         yRest: 7,
         icon: <FaBolt />,
       },
-      {
-        title: "Electrical & Electronics",
-        sub: "Power Systems",
-        y1: 7,
-        yRest: 7,
-        icon: <FaBolt />,
-      },
     ],
   },
   {
@@ -116,7 +112,9 @@ const categories = [
       { label: "Est.", value: "1963" },
     ],
     accent: "#16a34a",
-    accentBg: "rgba(22,163,74,0.12)",
+    accentBg: "rgba(22,163,74,0.08)",
+    accentBorder: "rgba(22,163,74,0.35)",
+    accentShadow: "rgba(22,163,74,0.14)",
     branches: [
       {
         title: "Civil Engineering",
@@ -158,8 +156,10 @@ const categories = [
       { label: "1st Yr from", value: "₹6L" },
       { label: "Placement", value: "100%" },
     ],
-    accent: "#0ea5a5",
-    accentBg: "rgba(14,165,165,0.12)",
+    accent: "#0e9488",
+    accentBg: "rgba(14,148,136,0.08)",
+    accentBorder: "rgba(14,148,136,0.35)",
+    accentShadow: "rgba(14,148,136,0.14)",
     branches: [
       {
         title: "Biotechnology",
@@ -176,13 +176,6 @@ const categories = [
         icon: <FaBrain />,
       },
       {
-        title: "Biotechnology",
-        sub: "Life Sciences & Biotech",
-        y1: 10,
-        yRest: 6,
-        icon: <FaLeaf />,
-      },
-      {
         title: "Industrial Management",
         sub: "Operations & Management",
         y1: 6,
@@ -195,6 +188,77 @@ const categories = [
 
 const total = (b) => b.y1 + b.yRest * 3;
 
+const BranchCard = ({ b, cat }) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="branch-card"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        "--card-accent": cat.accent,
+        "--card-accent-bg": cat.accentBg,
+        "--card-accent-border": cat.accentBorder,
+        "--card-accent-shadow": cat.accentShadow,
+        borderColor: hovered ? cat.accentBorder : undefined,
+        boxShadow: hovered ? `0 10px 28px ${cat.accentShadow}` : undefined,
+        transform: hovered ? "translateY(-4px)" : undefined,
+      }}
+    >
+      {/* Animated top accent bar */}
+      <div
+        className="bc-accent-bar"
+        style={{
+          background: cat.accent,
+          transform: hovered ? "scaleX(1)" : "scaleX(0)",
+        }}
+      />
+
+      {/* Card Header */}
+      <div className="bc-top">
+        <div
+          className="bc-icon"
+          style={{
+            background: hovered ? cat.accent : cat.accentBg,
+            color: hovered ? "#ffffff" : cat.accent,
+          }}
+        >
+          {b.icon}
+        </div>
+        <div className="bc-title-wrap">
+          <h4 className="bc-name">{b.title}</h4>
+          <span className="bc-sub">{b.sub}</span>
+        </div>
+      </div>
+
+      {/* Fee Columns */}
+      <div className="bc-table-row">
+        <div className="bc-col">
+          <span>1st Yr</span>
+          <strong style={{ color: cat.accent }}>₹{b.y1}L</strong>
+        </div>
+        <div className="bc-col">
+          <span>2nd Yr</span>
+          <strong>₹{b.yRest}L</strong>
+        </div>
+        <div className="bc-col">
+          <span>3rd Yr</span>
+          <strong>₹{b.yRest}L</strong>
+        </div>
+        <div className="bc-col">
+          <span>4th Yr</span>
+          <strong>₹{b.yRest}L</strong>
+        </div>
+        <div className="bc-col total" style={{ background: cat.accent }}>
+          <span>Total</span>
+          <strong>₹{total(b)}L</strong>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const FeeStructure = () => (
   <section className="fee-section">
     <div className="container">
@@ -205,15 +269,13 @@ const FeeStructure = () => (
 
       {categories.map((cat) => (
         <div className="fee-category" key={cat.id}>
-          {/* SUBHEADING */}
           <div className="cat-heading">
             <span className="cat-bar" style={{ background: cat.accent }} />
             <h3 style={{ color: cat.accent }}>{cat.label}</h3>
           </div>
 
-          {/* TWO-COLUMN LAYOUT */}
           <div className="cat-layout">
-            {/* LEFT: info + image */}
+            {/* LEFT */}
             <div className="cat-left">
               <div
                 className="cat-desc"
@@ -221,6 +283,7 @@ const FeeStructure = () => (
               >
                 <p className="cat-tagline">{cat.tagline}</p>
                 <p className="cat-text">{cat.desc}</p>
+
                 <div className="cat-stats">
                   {cat.stats.map((s, i) => (
                     <div
@@ -234,6 +297,7 @@ const FeeStructure = () => (
                   ))}
                 </div>
               </div>
+
               <div className="cat-img-wrap">
                 <img src={rvceImg} alt="RVCE Campus" />
                 <div
@@ -243,41 +307,11 @@ const FeeStructure = () => (
               </div>
             </div>
 
-            {/* RIGHT: branch cards */}
+            {/* RIGHT */}
             <div className="cat-right">
               <div className={`branch-grid grid-${cat.branches.length}`}>
                 {cat.branches.map((b, i) => (
-                  <div className="branch-card" key={i}>
-                    <div className="bc-top">
-                      <div
-                        className="bc-icon"
-                        style={{ background: cat.accentBg, color: cat.accent }}
-                      >
-                        {b.icon}
-                      </div>
-                      <div className="bc-title-wrap">
-                        <h4 className="bc-name">{b.title}</h4>
-                        <span className="bc-sub">{b.sub}</span>
-                      </div>
-                    </div>
-                    <div className="bc-fees">
-                      <div className="bc-year">
-                        <span>1st Year</span>
-                        <strong style={{ color: cat.accent }}>₹{b.y1}L</strong>
-                      </div>
-                      <span className="bc-arrow">→</span>
-                      <div className="bc-year">
-                        <span>Yr 2–4</span>
-                        <strong>₹{b.yRest}L/yr</strong>
-                      </div>
-                      <div
-                        className="bc-total"
-                        style={{ background: cat.accent }}
-                      >
-                        ₹{total(b)}L
-                      </div>
-                    </div>
-                  </div>
+                  <BranchCard key={i} b={b} cat={cat} />
                 ))}
               </div>
             </div>

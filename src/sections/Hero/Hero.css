@@ -52,7 +52,7 @@
   padding: 6px 14px;
   border-radius: 20px;
   background: rgba(30, 58, 138, 0.1);
-  color: #1E3A8A;
+  color: #1e3a8a;
   font-weight: 600;
   font-size: 13px;
   margin-bottom: 20px;
@@ -62,7 +62,7 @@
 .hero-badge span {
   width: 8px;
   height: 8px;
-  background: #1E3A8A;
+  background: #1e3a8a;
   border-radius: 50%;
 }
 
@@ -70,7 +70,7 @@
 .hero-title {
   font-size: 90px;
   font-weight: 900;
-  color: #1E3A8A;
+  color: #1e3a8a;
   line-height: 1;
   margin-bottom: 15px;
   letter-spacing: -2px;
@@ -87,7 +87,7 @@
 /* DESCRIPTION */
 .hero-desc {
   font-size: 16px;
-  color: #4b5563;
+  color: black;
   line-height: 1.7;
   margin-bottom: 30px;
 }
@@ -100,7 +100,7 @@
 
 /* PRIMARY BUTTON */
 .btn-primary {
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: #fff;
   padding: 14px 28px;
   border-radius: 10px;
@@ -120,11 +120,11 @@
 
 /* SECONDARY BUTTON */
 .btn-secondary {
-  background: #DBEAFE;
-  color: #1E3A8A;
+  background: #dbeafe;
+  color: #1e3a8a;
   padding: 14px 28px;
   border-radius: 10px;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #bfdbfe;
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
@@ -132,7 +132,7 @@
 }
 
 .btn-secondary:hover {
-  background: #BFDBFE;
+  background: #bfdbfe;
   transform: translateY(-2px);
 }
 
