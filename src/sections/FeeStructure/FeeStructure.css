@@ -92,7 +92,8 @@
   border-radius: 16px;
   overflow: hidden;
   position: relative;
-  border: 1px solid #bfdbfe;
+  background: #dbeafe;
+  border: 1px solid #dbeafe;
 }
 
 .cat-img {
