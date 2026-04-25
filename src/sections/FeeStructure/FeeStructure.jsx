@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./FeeStructure.css";
 
 // ── Category images — swap these paths to your actual assets ──
-import imgCS from "../../assets/computer_branch.png";
+import imgCS from "../../assets/computer_branch.jpeg";
 import imgCircuit from "../../assets/circuit_branch.png";
-import imgCore from "../../assets/core_branch.png";
+import imgCore from "../../assets/core_branch.jpeg";
 import imgOther from "../../assets/other_branch.png";
 
 import {
