@@ -249,6 +249,33 @@
 
 /* ================= RESPONSIVE ================= */
 
+/*
+  Small laptops & old MacBooks (1024px – 1280px)
+  — shrink image column so cards get more room
+  — slightly reduce fee column text so nothing wraps
+*/
+@media (max-width: 1280px) {
+  .cat-layout {
+    /* Give cards more room, shrink image column */
+    grid-template-columns: 28fr 72fr;
+  }
+
+  /* Tighten fee column amounts so they don't wrap */
+  .bc-col strong {
+    font-size: 12px;
+  }
+
+  .bc-col span {
+    font-size: 8px;
+  }
+
+  /* Tighten gap inside fee row */
+  .bc-table-row,
+  .bc-table-row--5yr {
+    gap: 5px;
+  }
+}
+
 @media (max-width: 1024px) {
   .cat-layout {
     grid-template-columns: 38fr 62fr;
