@@ -2,6 +2,7 @@ import "./Disclaimer.css";
 
 const COMEDK_URL = "https://www.comedk.org";
 const KCET_URL = "https://cetonline.karnataka.gov.in/kea";
+const RVCE_URL = "https://www.rvce.edu.in";
 
 export default function Disclaimer() {
   return (
@@ -32,7 +33,7 @@ export default function Disclaimer() {
             websites:
           </p>
 
-          {/* cards grid */}
+          {/* cards grid — now 3 columns */}
           <div className="ow-cards">
             {/* COMEDK */}
             <div className="ow-card">
@@ -70,7 +71,9 @@ export default function Disclaimer() {
               </div>
               <div className="ow-card-info">
                 <h4 className="ow-card-name">KCET (KEA)</h4>
-                <p className="ow-card-desc">Karnataka Examinations Authority</p>
+                <p className="ow-card-desc">
+                  Karnataka Examinations Authority — Official Website
+                </p>
                 <a
                   href={KCET_URL}
                   target="_blank"
@@ -79,6 +82,31 @@ export default function Disclaimer() {
                 >
                   <span className="ow-link-globe">🌐</span>
                   {KCET_URL.replace("https://", "")}
+                </a>
+              </div>
+            </div>
+
+            {/* RVCE */}
+            <div className="ow-card">
+              <div className="ow-card-logo rvce-logo">
+                <span className="rvce-text">
+                  <span className="rvce-r">R</span>
+                  <span className="rvce-vce">VCE</span>
+                </span>
+              </div>
+              <div className="ow-card-info">
+                <h4 className="ow-card-name">RVCE</h4>
+                <p className="ow-card-desc">
+                  R.V. College of Engineering, Bangalore — Official Website
+                </p>
+                <a
+                  href={RVCE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ow-link-btn"
+                >
+                  <span className="ow-link-globe">🌐</span>
+                  {RVCE_URL.replace("https://", "")}
                 </a>
               </div>
             </div>
