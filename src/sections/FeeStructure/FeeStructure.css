@@ -72,213 +72,60 @@
 
 .cat-layout {
   display: grid;
-  /* Increased left column from 36 → 42 */
-  grid-template-columns: 42fr 58fr;
+  grid-template-columns: 36fr 64fr;
   gap: 22px;
   align-items: stretch;
 }
 
-/* ================= LEFT SIDE ================= */
+/* ================= LEFT — IMAGE COLUMN ================= */
 
 .cat-left {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 0;
 }
 
-/* ================= LEFT CONTENT BOX ================= */
+/*
+  The image box fills the full height of the left column.
+  overflow: hidden + border-radius clips the image to
+  rounded corners without any JS or wrapper tricks.
 
-.cat-desc {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-radius: 14px;
-  padding: 22px 20px 20px;
-  position: relative;
+  NO hover effects, NO overlay, NO zoom — clean static image.
+*/
+.cat-img-box {
+  flex: 1;
+  min-height: 0;
+  border-radius: 16px;
   overflow: hidden;
-  /* Fills the full left column height */
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  cursor: default;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.cat-desc:hover {
-  border-color: rgba(30, 58, 138, 0.35);
-  box-shadow: 0 10px 28px rgba(30, 58, 138, 0.12);
-}
-
-/* Gradient accent bar — same slide-in animation as .bc-accent-bar */
-.cat-desc-accent-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  border-radius: 3px 3px 0 0;
-  transform-origin: left;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ================= TAGLINE & DESC ================= */
-
-.cat-tagline {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #9ca3af;
-  margin: 0 0 10px;
-  flex-shrink: 0;
-}
-
-.cat-text {
-  font-size: 14px;
-  color: #4b5563;
-  line-height: 1.7;
-  margin: 0 0 16px;
-  flex-shrink: 0;
-}
-
-/* ================= HIGHLIGHTS LIST ================= */
-
-.cat-highlights {
-  list-style: none;
-  margin: 0 0 16px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  flex-shrink: 0;
-}
-
-.cat-highlight-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 13px;
-  color: #374151;
-  line-height: 1.5;
-}
-
-.cat-highlight-icon {
-  flex-shrink: 0;
-  margin-top: 2px;
-  font-size: 11px;
-  opacity: 0.85;
-}
-
-/* ================= EXTRA STAT PILLS ================= */
-
-.cat-extra-stats {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 14px;
-  flex-shrink: 0;
-}
-
-.cat-extra-stat {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #ffffff;
+  position: relative;
   border: 1px solid #bfdbfe;
-  border-radius: 10px;
-  padding: 9px 10px;
 }
 
-.ces-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 12px;
-  flex-shrink: 0;
-}
-
-.ces-text {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.ces-text strong {
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 2px;
-}
-
-.ces-text span {
-  font-size: 9px;
-  color: #6b7280;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  white-space: nowrap;
-}
-
-/* ================= NOTE STRIP ================= */
-
-.cat-note {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 10px 12px;
-  margin-bottom: 16px;
-  flex-shrink: 0;
-}
-
-.cat-note p {
-  font-size: 12px;
-  color: #4b5563;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ================= STATS ROW ================= */
-
-.cat-stats {
-  display: flex;
-  gap: 8px;
-  flex-shrink: 0;
-  /* Pushed to bottom via flex column on cat-desc */
-  margin-top: auto;
-}
-
-.cat-stat {
-  flex: 1;
-  text-align: center;
-  padding: 10px 6px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgb(37, 99, 235), rgb(236, 72, 153));
-  border: 1px solid;
-}
-
-.cat-stat strong {
+/*
+  KEY FIX FOR NO HORIZONTAL CROPPING:
+  - width: 100%  — image always fills the column width exactly
+  - height: 100% — image fills the column height exactly
+  - object-fit: cover — fills both dimensions; any overflow
+    is cropped from top/bottom (vertical), NOT left/right,
+    because we supply portrait images (taller than wide).
+    A portrait image at 400px render width will be taller
+    than the container, so only top/bottom edges are trimmed.
+    Left and right edges always align flush — zero side cropping.
+  - object-position: center top — keeps the top of the photo
+    (usually the most important part — sky, building face,
+    people's heads) anchored; the bottom is what gets trimmed.
+*/
+.cat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 5px;
-  color: #ffffff;
+  /* No transition, no hover zoom — completely static */
 }
 
-.cat-stat span {
-  font-size: 10px;
-  color: #ffffff;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* ================= RIGHT SIDE ================= */
+/* ================= RIGHT — BRANCH CARDS COLUMN ================= */
 
 .cat-right {
   display: flex;
@@ -329,7 +176,7 @@
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* CARD TOP ROW */
+/* ── Card top row ── */
 .bc-top {
   display: flex;
   align-items: flex-start;
@@ -338,7 +185,6 @@
   margin-bottom: 14px;
 }
 
-/* Icon: always gradient bg, always white */
 .bc-icon {
   width: 36px;
   height: 36px;
@@ -369,8 +215,7 @@
   font-weight: 600;
 }
 
-/* ===== FEE TABLE — 4-year ===== */
-
+/* ── Fee table — 4-year ── */
 .bc-table-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1.3fr;
@@ -379,8 +224,7 @@
   flex-shrink: 0;
 }
 
-/* ===== FEE TABLE — 5-year (B.Arch) ===== */
-
+/* ── Fee table — 5-year (B.Arch) ── */
 .bc-table-row--5yr {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.3fr;
 }
@@ -411,7 +255,6 @@
   line-height: 1;
 }
 
-/* Total column */
 .bc-col.total {
   border: none;
   border-radius: 8px;
@@ -430,7 +273,7 @@
 
 @media (max-width: 1024px) {
   .cat-layout {
-    grid-template-columns: 44fr 56fr;
+    grid-template-columns: 38fr 62fr;
   }
 }
 
@@ -448,7 +291,9 @@
     height: auto;
   }
 
-  .cat-desc {
+  /* Fixed height on mobile — image sits above the stacked cards */
+  .cat-img-box {
+    height: 220px;
     flex: unset;
   }
 
@@ -469,10 +314,6 @@
   .bc-top {
     flex: unset;
   }
-
-  .cat-extra-stats {
-    flex-wrap: wrap;
-  }
 }
 
 @media (max-width: 480px) {
@@ -488,20 +329,12 @@
     font-size: 17px;
   }
 
+  .cat-img-box {
+    height: 180px;
+  }
+
   .branch-grid {
     grid-template-columns: 1fr !important;
-  }
-
-  .cat-stats {
-    flex-wrap: wrap;
-  }
-
-  .cat-stat {
-    min-width: 80px;
-  }
-
-  .cat-extra-stat {
-    min-width: calc(50% - 4px);
   }
 
   .bc-name {
