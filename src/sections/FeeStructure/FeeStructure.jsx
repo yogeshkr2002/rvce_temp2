@@ -5,7 +5,7 @@ import "./FeeStructure.css";
 import imgCS from "../../assets/computer_branch.png";
 import imgCircuit from "../../assets/circuit_branch.png";
 import imgCore from "../../assets/core_branch.png";
-import imgOther from "../../assets/other_branch.jpg";
+import imgOther from "../../assets/other_branch.png";
 
 import {
   FaLaptopCode,
